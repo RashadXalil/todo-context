@@ -1,6 +1,14 @@
 import React from 'react'
+import { useTodosContext } from '../../context/todos'
 import './Todos.css'
 const Todos = () => {
+  const { todos, setTodos } = useTodosContext()
+  console.log(todos)
+
+  const handleTodoStatusChange = (idx) => {
+    todos[idx].completed = !todos[idx].completed
+    setTodos([...todos])
+  }
   return (
     <table class="table table-hover table-dark">
       <thead>

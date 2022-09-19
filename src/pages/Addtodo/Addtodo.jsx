@@ -1,9 +1,18 @@
 import React from 'react'
+import { useTodosContext } from '../../context/todos'
 import './Addtodo.css'
 const Addtodo = () => {
+  const { setTodos } = useTodosContext()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const todo = e.target.todo.value
+    setTodos((prev) => [...prev, { todo, completed: false }])
+    e.target.reset()
+  }
   return (
     <div className="add__wrapper">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div class="form-group">
           <center>
             <label for="exampleInputEmail1">To Do</label>

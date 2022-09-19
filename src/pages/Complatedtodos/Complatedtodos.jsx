@@ -1,6 +1,13 @@
 import React from 'react'
+import { useTodosContext } from '../../context/todos'
 
 const Complatedtodos = () => {
+  const { todos, setTodos } = useTodosContext()
+
+  const emptyCompletedTodos = () => {
+    const newTodos = todos.map((todo) => ({ ...todo, completed: false }))
+    setTodos(newTodos)
+  }
   return (
     <table class="table table-hover table-dark">
       <thead>
