@@ -1,0 +1,15 @@
+.custom__header {
+  display: flex;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.custom__header__right__links {
+  list-style: none;
+  display: flex;
+  margin-bottom: 0;
+}
+.custom__header__right__links__item {
+  margin-right: 20px;
+}
