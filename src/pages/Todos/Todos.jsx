@@ -5,12 +5,12 @@ const Todos = () => {
   const { todos, setTodos } = useTodosContext()
   console.log(todos)
 
-  const handleTodoStatusChange = (idx) => {
-    todos[idx].completed = !todos[idx].completed
+  const handleTodoStatusChange = (index) => {
+    todos[index].completed = !todos[index].completed
     setTodos([...todos])
   }
   return (
-    <table class="table table-hover table-dark">
+    <table className="table table-hover table-dark">
       <thead>
         <tr>
           <th scope="col">Id</th>
@@ -21,84 +21,29 @@ const Todos = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Coding</td>
-          <td>
-            <input type="checkbox" />
-          </td>
-          <td>
-            <button className="btn btn-warning text-light">Edit</button>
-          </td>
-          <td>
-            <button className="btn btn-danger text-light">Delete</button>
-          </td>
-        </tr>{' '}
-        <tr>
-          <th scope="row">1</th>
-          <td>Coding</td>
-          <td>
-            <input type="checkbox" />
-          </td>
-          <td>
-            <button className="btn btn-warning text-light">Edit</button>
-          </td>
-          <td>
-            <button className="btn btn-danger text-light">Delete</button>
-          </td>
-        </tr>{' '}
-        <tr>
-          <th scope="row">1</th>
-          <td>Coding</td>
-          <td>
-            <input type="checkbox" />
-          </td>
-          <td>
-            <button className="btn btn-warning text-light">Edit</button>
-          </td>
-          <td>
-            <button className="btn btn-danger text-light">Delete</button>
-          </td>
-        </tr>{' '}
-        <tr>
-          <th scope="row">1</th>
-          <td>Coding</td>
-          <td>
-            <input type="checkbox" />
-          </td>
-          <td>
-            <button className="btn btn-warning text-light">Edit</button>
-          </td>
-          <td>
-            <button className="btn btn-danger text-light">Delete</button>
-          </td>
-        </tr>{' '}
-        <tr>
-          <th scope="row">1</th>
-          <td>Coding</td>
-          <td>
-            <input type="checkbox" />
-          </td>
-          <td>
-            <button className="btn btn-warning text-light">Edit</button>
-          </td>
-          <td>
-            <button className="btn btn-danger text-light">Delete</button>
-          </td>
-        </tr>{' '}
-        <tr>
-          <th scope="row">1</th>
-          <td>Coding</td>
-          <td>
-            <input type="checkbox" />
-          </td>
-          <td>
-            <button className="btn btn-warning text-light">Edit</button>
-          </td>
-          <td>
-            <button className="btn btn-danger text-light">Delete</button>
-          </td>
-        </tr>
+        {todos.map((todo, index) => {
+          return (
+            <tr key={Math.floor(Math.random() * 100)}>
+              <th scope="row">{Math.floor(Math.random() * 100)}</th>
+              <td>{todo.todo}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  onChange={handleTodoStatusChange.bind(null, index)}
+                  name="todoCheckbox"
+                  id="todoCheckBox"
+                  checked={todo.completed}
+                />
+              </td>
+              <td>
+                <button className="btn btn-warning text-light">Edit</button>
+              </td>
+              <td>
+                <button className="btn btn-danger text-light">Delete</button>
+              </td>
+            </tr>
+          )
+        })}
       </tbody>
     </table>
   )

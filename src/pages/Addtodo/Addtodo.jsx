@@ -13,25 +13,19 @@ const Addtodo = () => {
   return (
     <div className="add__wrapper">
       <form onSubmit={handleSubmit}>
-        <div class="form-group">
+        <div className="form-group">
           <center>
-            <label for="exampleInputEmail1">To Do</label>
+            <label htmlFor="exampleInputEmail1">To Do</label>
           </center>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-          />
+          <input required type="text" className="form-control" name="todo" />
           <center>
-            <small id="emailHelp" class="form-text text-muted mt-3">
+            <small id="emailHelp" className="form-text text-muted mt-3">
               Enter your to do here
             </small>
           </center>
         </div>
         <center>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             add
           </button>
         </center>
