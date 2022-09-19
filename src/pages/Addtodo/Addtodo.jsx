@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTodosContext } from '../../context/todos'
 import './Addtodo.css'
+import toast, { Toaster } from 'react-hot-toast'
 const Addtodo = () => {
   const { setTodos } = useTodosContext()
 
@@ -8,6 +9,7 @@ const Addtodo = () => {
     e.preventDefault()
     const todo = e.target.todo.value
     setTodos((prev) => [...prev, { todo, completed: false }])
+    toast.success('Todo Created')
     e.target.reset()
   }
   return (
@@ -30,6 +32,7 @@ const Addtodo = () => {
           </button>
         </center>
       </form>
+      <Toaster position="top-center" />
     </div>
   )
 }
